@@ -118,56 +118,55 @@ document.addEventListener('DOMContentLoaded', function () {
     const firstScreen = document.getElementById('first-screen');
     const secondScreen = document.getElementById('second-screen');
     const sliderScreen = document.getElementById('slider-screen');
+    const menuBtn = document.getElementById('menu-btn');
 
-    // Функция для переключения экранов с анимацией
-    function switchScreen(from, to) {
-        from.classList.remove('is-active');
+    function switchScreen(from, to, callback) {
+        // Если уходим со второго экрана, запускаем анимацию разлета
+        if (from === secondScreen) {
+            from.classList.add('is-leaving');
 
+            // Ждем завершения анимации кнопок (0.6s), затем скрываем экран
+            setTimeout(() => {
+                finalizeSwitch(from, to, callback);
+                from.classList.remove('is-leaving'); // Чистим класс для следующего раза
+            }, 600);
+        } else {
+            // Обычное переключение для остальных экранов
+            from.classList.remove('is-active');
+            setTimeout(() => finalizeSwitch(from, to, callback), 500);
+        }
+    }
+
+    function finalizeSwitch(from, to, callback) {
         from.classList.add('display-none');
         to.classList.remove('display-none');
 
-        // Задержка на один кадр, чтобы сработал transition opacity
+        // Маленький хак для инициализации анимации появления
         requestAnimationFrame(() => {
             to.classList.add('is-active');
+            if (callback) callback();
         });
     }
 
-    // 1. Клик на первом экране
-    const startBtn = firstScreen.querySelector('.first-screen__btn');
-    startBtn.addEventListener('click', () => {
+    // 1. Из первого во второй
+    firstScreen.querySelector('.first-screen__btn').onclick = () => {
         switchScreen(firstScreen, secondScreen);
+    };
+
+    // 2. Из второго в слайдер
+    secondScreen.querySelectorAll('.second-screen__btn').forEach(btn => {
+        btn.onclick = () => {
+            const title = btn.getAttribute('data-title');
+            switchScreen(secondScreen, sliderScreen, () => {
+                if (window.initSliderByKey) initSliderByKey(title, window.texts);
+            });
+        };
     });
 
-    // 2. Клик по кнопкам на втором экране
-    const categoryButtons = secondScreen.querySelectorAll('.second-screen__btn');
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const title = btn.getAttribute('data-title'); // Берем значение из атрибута
-
-            switchScreen(secondScreen, sliderScreen);
-
-            // Вызываем вашу функцию инициализации слайдера
-            if (typeof initSliderByKey === 'function') {
-                // Предполагаем, что 'texts' объявлена глобально или доступна в этой области
-                initSliderByKey(title, window.texts || []);
-            } else {
-                console.warn('Функция initSliderByKey не найдена');
-            }
-        });
-    });
-
-    setTimeout(() => firstScreen.classList.add('is-active'), 10);
-
-// 3. Возврат из слайдера в меню (второй экран)
-    const menuBtn = document.getElementById('menu-btn');
-
+    // 3. Возврат в меню
     if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            // Скрываем экран слайдера и возвращаем второй экран
-            switchScreen(sliderScreen, secondScreen);
-
-            // Опционально: если нужно "убить" или обнулить слайдер при выходе
-            // destroySlider();
-        });
+        menuBtn.onclick = () => switchScreen(sliderScreen, secondScreen);
     }
+
+    firstScreen.classList.add('is-active');
 });
