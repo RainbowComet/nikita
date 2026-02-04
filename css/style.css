@@ -82,12 +82,12 @@ html {
 .screen {
     width: 100vw;
     height: 100vh;
-}
-
-.first-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.first-screen {
     /* 158px / 20 = 7.9rem | 279px / 20 = 13.95rem */
     padding: 7.9rem 0 13.95rem 0;
 
@@ -128,4 +128,40 @@ html {
     line-height: 120%;
     text-align: center;
     max-width: 76.4rem; /* 1528px / 20 = 76.4 */
+}
+
+
+.second-screen {
+    padding: 200px 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/second-screen-bg.jpg");
+    justify-content: space-between;
+}
+
+.second-screen__title {
+    font-weight: 400;
+    font-size: 245px;
+    line-height: 104%;
+    text-align: center;
+    font-family: 'Racama', sans-serif;
+}
+
+.second-screen__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.second-screen__btn {
+    border-radius: 100px;
+}
+
+.second-screen__desc {
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 111%;
 }
