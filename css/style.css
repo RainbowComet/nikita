@@ -11,8 +11,9 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('../fonts/Proxima-Nova-Regular.otf') format('opentype');
+    src: url('../fonts/Proxima Nova Regular.otf') format('opentype');
 }
+
 @font-face {
     font-family: 'Proxima Nova';
     font-style: normal;
@@ -30,9 +31,8 @@
 }
 
 html {
-    /* Базовый размер для 4K */
+    /* База 4K: 20px (1rem = 20px) */
     font-size: 20px;
-
     font-family: "Helios", sans-serif;
     font-weight: 400;
     color: #fff;
@@ -40,7 +40,7 @@ html {
 
 @media (max-width: 1920px) {
     html {
-        /* Уменьшаем базу в 2 раза для Full HD */
+        /* База Full HD: 10px (1rem = 10px) */
         font-size: 10px;
     }
 }
@@ -48,6 +48,7 @@ html {
 *,
 *::before,
 *::after {
+    box-sizing: border-box; /* Важно для правильного расчета размеров */
     font-family: inherit;
     color: inherit;
     -webkit-font-smoothing: antialiased;
@@ -61,14 +62,12 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     border: none;
     cursor: pointer;
     transition: 0.5s ease;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 1.5rem; /* 30px / 20 = 1.5 */
     max-width: max-content;
 }
 
@@ -89,7 +88,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 158px 0 279px 0;
+    /* 158px / 20 = 7.9rem | 279px / 20 = 13.95rem */
+    padding: 7.9rem 0 13.95rem 0;
 
     background-repeat: no-repeat;
     background-position: center;
@@ -98,7 +98,7 @@ html {
 }
 
 .first-screen__title {
-    font-size: 150px;
+    font-size: 7.5rem; /* 150px / 20 = 7.5 */
     line-height: 100%;
     font-weight: 400;
     text-align: center;
@@ -107,34 +107,25 @@ html {
 
 .btn--blured {
     font-weight: 600;
-    font-size: 110px;
+    font-size: 5.5rem; /* 110px / 20 = 5.5 */
     line-height: 55%;
     text-align: center;
     color: #fff;
-    border-radius: 250px;
-    padding: 100px 130px;
-    backdrop-filter: blur(50px);
+    border-radius: 12.5rem; /* 250px / 20 = 12.5 */
+    padding: 5rem 6.5rem; /* 100px / 20 = 5 | 130px / 20 = 6.5 */
+    backdrop-filter: blur(2.5rem); /* 50px / 20 = 2.5 */
     background: linear-gradient(46deg, rgba(224, 239, 234, 0.4) 0.48%, rgba(193, 223, 214, 0.2) 56.25%, rgba(255, 255, 255, 0.5) 100%);
 }
 
 .first-screen__btn {
-    padding: 100px 150px;
-    margin-bottom: 100px;
+    padding: 5rem 7.5rem; /* 100px / 20 = 5 | 150px / 20 = 7.5 */
+    margin-bottom: 5rem;  /* 100px / 20 = 5 */
     margin-top: auto;
 }
 
 .first-screen__desc {
-    font-size: 70px;
+    font-size: 3.5rem; /* 70px / 20 = 3.5 */
     line-height: 120%;
     text-align: center;
-    max-width: 1528px;
+    max-width: 76.4rem; /* 1528px / 20 = 76.4 */
 }
-
-. {
-
-}
-
-. {
-
-}
-
