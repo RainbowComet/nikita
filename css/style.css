@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('../fonts/Helios-Regular.ttf') format('truetype');
+    src: url('../fonts/Helios Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -105,7 +105,7 @@ html {
     font-family: 'Racama', sans-serif;
 }
 
-.btn--blured {
+.btn--blurred {
     font-weight: 600;
     font-size: 5.5rem; /* 110px / 20 = 5.5 */
     line-height: 55%;
@@ -119,7 +119,7 @@ html {
 
 .first-screen__btn {
     padding: 5rem 7.5rem; /* 100px / 20 = 5 | 150px / 20 = 7.5 */
-    margin-bottom: 5rem;  /* 100px / 20 = 5 */
+    margin-bottom: 5rem; /* 100px / 20 = 5 */
     margin-top: auto;
 }
 
@@ -164,4 +164,260 @@ html {
     font-weight: 400;
     font-size: 90px;
     line-height: 111%;
+}
+
+.slider-screen {
+    padding: 100px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/main-bg.jpg");
+    justify-content: space-between;
+}
+
+.slider-screen__content {
+
+}
+
+.slider-screen__img-wrapper {
+
+}
+
+.slider-screen__text {
+    margin-top: 60px;
+    border-radius: 70px;
+    padding: 80px;
+    background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 156%;
+    letter-spacing: -0.02em;
+    color: #161617;
+}
+
+.slider-screen__footer {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: auto;
+
+    width: 100%;
+}
+
+.footer__title {
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 111%;
+
+    font-family: 'Racama', sans-serif;
+}
+
+.footer__line {
+    width: 100%;
+    flex: 1;
+    height: 5px;
+    background: #fff;
+}
+
+.footer__slides-amount {
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 111%;
+
+    font-family: 'Racama', sans-serif;
+}
+
+.slider-screen__btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.slider-screen__menu-btn {
+    border-radius: 80px;
+    padding: 90px 120px;
+    font-weight: 600;
+    font-size: 75px;
+}
+
+.navigation-controls {
+    display: flex;
+    gap: 30px;
+}
+
+.slider-screen .swiper-button-next,
+.slider-screen .swiper-button-prev {
+    position: static;
+    width: 230px;
+    min-width: 230px;
+    border-radius: 80px;
+    height: 230px;
+    padding: 0;
+    color: unset;
+    margin-top: unset;
+
+    background: linear-gradient(180deg, rgba(224, 239, 234, 0.2) 0.48%, rgba(255, 255, 255, 0.5) 100%);
+    backdrop-filter: blur(50px);
+}
+
+.slider-screen .swiper-button-next svg,
+.slider-screen .swiper-button-prev svg {
+    height: 52px;
+    width: 84px;
+}
+
+.slider-screen .swiper-button-next.swiper-button-disabled,
+.slider-screen .swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+}
+
+
+.slider-screen .swiper-button-next::after,
+.slider-screen .swiper-button-prev::after {
+    display: none;
+}
+
+.slider-screen .swiper-pagination {
+    position: static;
+    display: flex;
+    gap: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+}
+
+.slider-screen .swiper-pagination .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.4);
+    height: 25px;
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Чтобы заполнение не выходило за скругленные углы */
+    opacity: 1; /* Swiper по умолчанию ставит 0.2, переопределяем */
+}
+
+/* Создаем "заполнитель" */
+.slider-screen .swiper-pagination .swiper-pagination-bullet::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0; /* Изначально ширина 0 */
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+}
+
+/* Анимация при активации буллета */
+.slider-screen .swiper-pagination .swiper-pagination-bullet-active::after {
+    animation: fillProgress 0.2s linear forwards;
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.swiper-container .swiper-wrapper {
+    height: 2904px;
+
+}
+#slider-screen {
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    overflow: visible; /* ВАЖНО */
+}
+
+.swiper,
+.swiper-slide {
+    width: 100%;
+}
+#slider-screen {
+    padding: 0;
+}
+
+.swiper-slide {
+    padding: 100px 100px 0 100px;
+}
+
+.swiper-pagination {
+    padding: 0 100px;
+}
+
+.slider-screen__btns {
+    padding: 0 100px;
+}
+
+.slider-screen__footer {
+    padding: 0 100px 100px 100px;
+}
+
+
+/* Базовый класс для экранов */
+.screen {
+    transition: opacity 1s ease, visibility 1s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; /* Чтобы экраны не толкали друг друга при смене */
+    width: 100%;
+}
+
+/* Класс активного экрана */
+.screen.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Состояния второго экрана */
+.second-screen {
+    transition: opacity 0.5s ease;
+    background: #000; /* Фон появляется сразу */
+}
+
+/* Базовое состояние кнопок (скрыты) */
+.second-screen__btn {
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+/* Кнопки 1, 3, 5 вылетают слева */
+.second-screen__btn:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+/* Кнопки 2, 4 вылетают справа */
+.second-screen__btn:nth-child(even) {
+    transform: translateX(50px);
+}
+
+/* Эффект появления при активном экране */
+.second-screen.is-active .second-screen__btn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Добавляем каскадную задержку для каждой кнопки */
+.second-screen__btn:nth-child(1) { transition-delay: 0.1s; }
+.second-screen__btn:nth-child(2) { transition-delay: 0.2s; }
+.second-screen__btn:nth-child(3) { transition-delay: 0.3s; }
+.second-screen__btn:nth-child(4) { transition-delay: 0.4s; }
+.second-screen__btn:nth-child(5) { transition-delay: 0.5s; }
+
+/* Состояние исчезновения (Разлет) */
+.second-screen.is-leaving .second-screen__btn:nth-child(odd) {
+    transform: translateX(-150px);
+    opacity: 0;
+}
+
+.second-screen.is-leaving .second-screen__btn:nth-child(even) {
+    transform: translateX(150px);
+    opacity: 0;
 }

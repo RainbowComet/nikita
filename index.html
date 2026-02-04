@@ -7,14 +7,18 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
 
-<section class="screen first-screen display-none" id="first-screen">
+<section class="screen first-screen" id="first-screen">
     <h1 class="first-screen__title">Личное</h1>
 
-    <div class="btn btn--blured first-screen__btn">Начать</div>
+    <button class="btn btn--blurred first-screen__btn">Начать</button>
     <p class="first-screen__desc">
         «Сначала женщина должна родить детей,
         а потом уже заниматься чем угодно,
@@ -27,11 +31,11 @@
     <h1 class="second-screen__title">Личное</h1>
 
     <div class="second-screen__btns">
-        <div class="btn btn--blured second-screen__btn">Семейное древо</div>
-        <div class="btn btn--blured second-screen__btn">Детство </div>
-        <div class="btn btn--blured second-screen__btn">Юность</div>
-        <div class="btn btn--blured second-screen__btn">Семья</div>
-        <div class="btn btn--blured second-screen__btn">Увлечения</div>
+        <button class="btn btn--blurred second-screen__btn" data-title="Семейное древо">Семейное древо</button>
+        <button class="btn btn--blurred second-screen__btn" data-title="Детство">Детство</button>
+        <button class="btn btn--blurred second-screen__btn" data-title="Юность">Юность</button>
+        <button class="btn btn--blurred second-screen__btn" data-title="Семья">Семья</button>
+        <button class="btn btn--blurred second-screen__btn" data-title="Увлечения">Увлечения</button>
     </div>
 
     <p class="second-screen__desc">
@@ -39,7 +43,52 @@
     </p>
 </section>
 
+<section class="screen slider-screen swiper-container" id="slider-screen">
+    <div class="slider-screen__content swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="slider-screen__img-wrapper">
 
-<script src="/js/main.js?v=1" type="bff2aff46b3e4d0e82343895-text/javascript"></script>
+            </div>
+            <p class="slider-screen__text" id="slider-text"></p>
+        </div>
+        <div class="swiper-slide">
+            <div class="slider-screen__img-wrapper">
+                <img src="" alt="">
+            </div>
+            <p class="slider-screen__text">«В детстве у меня все складывалось само собой. Я редко прилагала к чему-то особые усилия. Училась нормально, но без напряжения»</p>
+        </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="slider-screen__btns">
+        <div class="slider-screen__menu-btn btn btn--blurred" id="menu-btn">Меню</div>
+        <div class="navigation-controls">
+            <div class="swiper-button-prev btn btn--blurred">
+                <svg width="84" height="52" viewBox="0 0 84 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.02513 23.2991C-0.341709 24.6659 -0.341709 26.882 1.02513 28.2488L23.299 50.5227C24.6658 51.8895 26.8819 51.8895 28.2487 50.5227C29.6156 49.1558 29.6156 46.9398 28.2487 45.5729L8.44975 25.7739L28.2487 5.97494C29.6156 4.6081 29.6156 2.39202 28.2487 1.02519C26.8819 -0.341646 24.6658 -0.341646 23.299 1.02519L1.02513 23.2991ZM83.5 25.7739V22.2739H3.5V25.7739V29.2739H83.5V25.7739Z" fill="white" />
+                </svg>
+            </div>
+            <div class="swiper-button-next btn btn--blurred">
+                <svg width="84" height="52" viewBox="0 0 84 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M82.4749 28.2488C83.8417 26.882 83.8417 24.6659 82.4749 23.2991L60.201 1.02519C58.8342 -0.341646 56.6181 -0.341646 55.2513 1.02519C53.8844 2.39202 53.8844 4.6081 55.2513 5.97494L75.0502 25.7739L55.2513 45.5729C53.8844 46.9398 53.8844 49.1558 55.2513 50.5227C56.6181 51.8895 58.8342 51.8895 60.201 50.5227L82.4749 28.2488ZM80 25.7739V22.2739H0V25.7739V29.2739H80V25.7739Z" fill="white" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-screen__footer footer">
+        <div class="footer__title">
+            Детство
+        </div>
+        <div class="footer__line"></div>
+        <div class="footer__slides-amount" id="slides-amount">
+            2/5
+        </div>
+    </div>
+</section>
+
+
+<script src="js/main.js?v=1"></script>
 </body>
 </html>
