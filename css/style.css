@@ -445,7 +445,8 @@ html {
 .title-block {
     border-radius: 70px;
     padding: 80px;
-    background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);=
+    background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
+=
 }
 
 .title-block__text {
@@ -463,9 +464,9 @@ html {
 }
 
 .swiper-slide {
-    display: flex!important;
-    flex-direction: column!important;
-    gap: 60px!important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 60px !important;
 }
 
 .title-block__year-value {
