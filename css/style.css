@@ -189,13 +189,12 @@ html {
 .slider-screen__img-wrapper {
 
 }
-
 .slider-screen__text {
-    border-radius: 70px;
-    padding: 80px;
+    border-radius: 3.5rem; /* 70px / 20 */
+    padding: 4rem;        /* 80px / 20 */
     background: linear-gradient(30deg, #fff 0%, #c2e1c7 100%);
     font-weight: 400;
-    font-size: 64px;
+    font-size: 3.2rem;    /* 64px / 20 */
     line-height: 156%;
     letter-spacing: -0.02em;
     color: #161617;
@@ -203,33 +202,30 @@ html {
 
 .slider-screen__footer {
     display: flex;
-    gap: 40px;
+    gap: 2rem;            /* 40px / 20 */
     align-items: center;
     margin-top: auto;
-
     width: 100%;
 }
 
 .footer__title {
     font-weight: 400;
-    font-size: 90px;
+    font-size: 4.5rem;    /* 90px / 20 */
     line-height: 111%;
-
     font-family: 'Racama', sans-serif;
 }
 
 .footer__line {
     width: 100%;
     flex: 1;
-    height: 5px;
+    height: 0.25rem;      /* 5px / 20 */
     background: #fff;
 }
 
 .footer__slides-amount {
     font-weight: 400;
-    font-size: 90px;
+    font-size: 4.5rem;    /* 90px / 20 */
     line-height: 111%;
-
     font-family: 'Racama', sans-serif;
 }
 
@@ -240,43 +236,48 @@ html {
 }
 
 .slider-screen__menu-btn {
-    border-radius: 80px;
-    padding: 90px 120px;
+    border-radius: 4rem;  /* 80px / 20 */
+    padding: 4.5rem 6rem; /* 90px / 20 = 4.5 | 120px / 20 = 6 */
     font-weight: 600;
-    font-size: 75px;
+    font-size: 3.75rem;   /* 75px / 20 */
 }
 
 .navigation-controls {
     display: flex;
-    gap: 30px;
+    gap: 1.5rem;          /* 30px / 20 */
 }
 
 .slider-screen .swiper-button-next,
 .slider-screen .swiper-button-prev {
     position: static;
-    width: 230px;
-    min-width: 230px;
-    border-radius: 80px;
-    height: 230px;
+    width: 11.5rem;       /* 230px / 20 */
+    min-width: 11.5rem;
+    height: 11.5rem;      /* 230px / 20 */
+    border-radius: 4rem;  /* 80px / 20 */
     padding: 0;
     color: unset;
     margin-top: unset;
 
     background: linear-gradient(180deg, rgba(224, 239, 234, 0.2) 0.48%, rgba(255, 255, 255, 0.5) 100%);
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(2.5rem); /* 50px / 20 */
+}
+
+/* Очистка дефолтных иконок Swiper, если используете свои SVG */
+.slider-screen .swiper-button-next::after,
+.slider-screen .swiper-button-prev::after {
+    display: none;
 }
 
 .slider-screen .swiper-button-next svg,
 .slider-screen .swiper-button-prev svg {
-    height: 52px;
-    width: 84px;
+    height: 2.6rem;       /* 52px / 20 */
+    width: 4.2rem;        /* 84px / 20 */
 }
 
 .slider-screen .swiper-button-next.swiper-button-disabled,
 .slider-screen .swiper-button-prev.swiper-button-disabled {
     opacity: 0;
 }
-
 
 .slider-screen .swiper-button-next::after,
 .slider-screen .swiper-button-prev::after {
